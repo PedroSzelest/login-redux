@@ -1,14 +1,11 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addFavorite, removeFavorite } from "../../../../redux/actions/favorite.Action";
 import "./Modal.css";
 
 const Modal = ({ name, id, url1, url2, description1, description2, likes })=> {
     const [modal, setModal] = useState(false)
     const [updateFavorite, setUpdateFavorite] = useState(false)
-
-    const { favorite_list } = useSelector( state => state.setFavoriteReducer )
-
     const dispatch = useDispatch()
 
     const handleModal = ()=> setModal(!modal)

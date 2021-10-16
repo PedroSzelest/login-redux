@@ -1,0 +1,14 @@
+.signup_text, .login_text {
+    font-size: 15px;
+    width: 30vw;
+    text-align: center;
+    border: thin solid var(--light-grey);
+    margin-top: 30px;
+    padding: 10px;
+}
+
+.login_link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

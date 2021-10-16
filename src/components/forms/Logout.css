@@ -1,0 +1,18 @@
+.logout_container {
+    width: 100vw;
+    height: 100vh;  
+}
+
+.logout_body {
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logout_form {
+    border: thin solid black;
+    width: 30vw;
+    height: 50vh;
+}

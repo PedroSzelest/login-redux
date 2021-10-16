@@ -1,0 +1,95 @@
+.modal_background.true  {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background-color:  rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3 ;
+}
+
+.modal_background.false {
+    opacity: 0;
+    z-index: -999;
+    position: absolute;
+}
+
+.modal_container {
+    width: 30%;
+    height: 80%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 10px;
+}
+
+.modal_image_container {
+    padding: 20px;
+    border: thin solid black;
+    margin-top: 30px;
+}
+
+.modal_data_container p {
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+    text-transform: capitalize;
+    font-family: var(--poppins);
+}
+
+
+.modal_data_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.each_image {
+    margin-bottom: -2vw;
+}
+
+.each_image legend {
+    width: 100%;
+    height: 6vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    position: relative;
+    bottom: 6vh;
+    color: var(--grey);
+}
+
+.rating_container button {
+    border: thin solid black;
+    background-color: var(--grey);
+    padding: 3px;
+    font-family: var(--poppins);
+    font-size: 13px;
+}
+
+.rating_container button:hover {
+    background-color: var(--light-grey);
+}
+
+.remove_button {
+    margin-left: 5px;
+}
+
+.add_button {
+    margin-right: 5px;
+}
+
+
+
+.red {
+    color: red;
+}
+
+.fas.fa-star.true {
+    color: yellow;
+}

@@ -1,0 +1,12 @@
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 90vh;
+}
+
+.spinnerLoading {
+    width: 7vh !important;
+    height: 7vh !important;
+}

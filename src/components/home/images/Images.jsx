@@ -5,90 +5,89 @@ import getImages from "../../../redux/actions/getImages.Action";
 import Modal from "./modal/Modal";
 import Loading from "../../loading/Loading";
 
-const Images = ()=> {
-    const [loading, setLoading] = useState(false)
+const Images = () => {
+  const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
 
-    useEffect(()=> {
-        setLoading(true)
-        setTimeout(()=> {
-            setLoading(false)
-        }, 1000)
-    }, [])
+  dispatch(getImages());
 
-    const dispatch = useDispatch()
-    
-    const sentinel = useRef()
-    
-    useEffect(()=> {
-        dispatch(getImages())
-    }, [])
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
 
-    const { images_list } = useSelector( state => state.getImagesReducer )
-    
-    if (loading) {
-        return (
-            <Loading />
-        )
-    } else {
-        return (
-            <div className="images_container">
-                <div className="line_container">
-                    {images_list === undefined ? "" : images_list.map( (image, index)=> {
-                        if(index % 3 === 0) {
-                            return (
-                                <Modal
-                                name={image.user.name}
-                                id={image.id}
-                                url1={image.urls.small}
-                                url2={image.urls.thumb}
-                                description1={image.alt_description}
-                                description2={image.description}
-                                likes={image.likes}
-                                />
-                            )
-                        }
-                    })}
-                </div>
-                <div className="line_container">
-                    {images_list === undefined ? "" : images_list.map( (image, index)=> {
-                        if(index % 3 === 1) {
-                            return (
-                                <Modal
-                                name={image.user.name}
-                                id={image.id}
-                                url1={image.urls.small}
-                                url2={image.urls.thumb}
-                                description1={image.alt_description}
-                                description2={image.description}
-                                likes={image.likes}
-                                />
-                            )
-                        }
-                    } )}
-                </div>
-                <div className="line_container">
-                    {images_list === undefined ? "" : images_list.map( (image, index)=> {
-                        if (index % 3 === 2) {
-                            return (
-                                <Modal
-                                name={image.user.name}
-                                id={image.id}
-                                url1={image.urls.small}
-                                url2={image.urls.thumb}
-                                description1={image.alt_description}
-                                description2={image.description}
-                                likes={image.likes}
-                                />
-                            )
-                        }
-                    })}
-                </div>
-                <div ref={sentinel} className="sentinel"></div>
-            </div>
-        )
-    }
+  const sentinel = useRef();
 
+  const { images_list } = useSelector((state) => state.getImagesReducer);
 
-}
+  if (loading) {
+    return <Loading />;
+  } else {
+    return (
+      <div className="images_container">
+        <div className="line_container">
+          {images_list === undefined
+            ? ""
+            : images_list
+                .filter((each, index) => index % 3 === 0)
+                .map((image) => {
+                  return (
+                    <Modal
+                      name={image.user.name}
+                      id={image.id}
+                      url1={image.urls.small}
+                      url2={image.urls.thumb}
+                      description1={image.alt_description}
+                      description2={image.description}
+                      likes={image.likes}
+                    />
+                  );
+                })}
+        </div>
+        <div className="line_container">
+          {images_list === undefined
+            ? ""
+            : images_list
+                .filter((each, index) => index % 3 === 1)
+                .map((image, index) => {
+                  return (
+                    <Modal
+                      name={image.user.name}
+                      id={image.id}
+                      url1={image.urls.small}
+                      url2={image.urls.thumb}
+                      description1={image.alt_description}
+                      description2={image.description}
+                      likes={image.likes}
+                    />
+                  );
+                })}
+        </div>
+        <div className="line_container">
+          {images_list === undefined
+            ? ""
+            : images_list
+                .filter((each, index) => index % 3 === 2)
+                .map((image) => {
+                  return (
+                    <Modal
+                      name={image.user.name}
+                      id={image.id}
+                      url1={image.urls.small}
+                      url2={image.urls.thumb}
+                      description1={image.alt_description}
+                      description2={image.description}
+                      likes={image.likes}
+                    />
+                  );
+                })}
+        </div>
+        <div ref={sentinel} className="sentinel"></div>
+      </div>
+    );
+  }
+};
 
-export default Images
+export default Images;
